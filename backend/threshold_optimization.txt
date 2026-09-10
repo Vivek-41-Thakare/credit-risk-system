@@ -1,0 +1,19 @@
+
+# Suggested update for app/ml_model.py line 91-99:
+# Use optimized threshold of 0.45 instead of 0.5
+
+# Current:
+prediction = int(self.model.predict(X_processed)[0])
+
+# Suggested (for cost-optimized performance):
+# Use custom threshold
+OPTIMAL_THRESHOLD = 0.45
+prediction = int(probability > OPTIMAL_THRESHOLD)
+
+# Update risk categories accordingly:
+if probability < 0.25:
+    risk_category = RiskCategory.LOW
+elif probability < 0.45:  # Changed from 0.6
+    risk_category = RiskCategory.MEDIUM
+else:
+    risk_category = RiskCategory.HIGH

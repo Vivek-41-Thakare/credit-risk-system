@@ -1,0 +1,34 @@
+[project]
+name = "credit-risk-backend"
+version = "2.0.0"
+description = "Credit Risk Assessment System Backend"
+requires-python = ">=3.11"
+dependencies = [
+    "aiofiles>=24.1.0",
+    "alembic>=1.16.4",
+    "email-validator>=2.2.0",
+    "fastapi>=0.116.1",
+    "numpy>=2.3.2",
+    "pandas>=2.3.1",
+    "passlib>=1.7.4",
+    "prometheus-client>=0.22.1",
+    "psycopg2-binary>=2.9.10",
+    "pydantic>=2.11.7",
+    "pydantic-settings>=2.10.1",
+    "python-dotenv>=1.1.1",
+    "python-jose>=3.5.0",
+    "python-multipart>=0.0.20",
+    "redis>=6.4.0",
+    "scikit-learn==1.6.1",
+    "sqlalchemy>=2.0.42",
+    "uvicorn>=0.35.0",
+    "xgboost>=3.0.3",
+]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "mypy>=1.17.1",
+    "pylint>=3.3.7",
+    "ruff>=0.12.8",
+]

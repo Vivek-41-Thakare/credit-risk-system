@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-08-10T22:50:22.587505",
+  "model_type": "XGBoost",
+  "version": "2.0.0",
+  "performance": {
+    "test_roc_auc": 0.822,
+    "test_accuracy": 0.79,
+    "cv_score": 0.789
+  },
+  "best_params": {},
+  "features": {
+    "total": 54,
+    "numerical": 11,
+    "categorical": 13,
+    "engineered": 6
+  },
+  "deployment": {
+    "api_compatible": true,
+    "preprocessing_included": true,
+    "feature_engineering_included": true
+  }
+}
