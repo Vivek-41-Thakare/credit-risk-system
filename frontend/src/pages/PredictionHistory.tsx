@@ -42,6 +42,7 @@ const PredictionHistory: React.FC = () => {
 
   useEffect(() => {
     fetchPredictions();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, rowsPerPage]);
 
   const fetchPredictions = async () => {
@@ -51,7 +52,9 @@ const PredictionHistory: React.FC = () => {
         page * rowsPerPage,
         rowsPerPage
       );
+
       setPredictions(response.data);
+
       // Assuming the API returns total count
       setTotal(response.data.length || 0);
     } catch (err: any) {
@@ -66,17 +69,23 @@ const PredictionHistory: React.FC = () => {
     setPage(newPage);
   };
 
-  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeRowsPerPage = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
 
   const getRiskColor = (category: string) => {
     switch (category) {
-      case 'Low': return 'success';
-      case 'Medium': return 'warning';
-      case 'High': return 'error';
-      default: return 'default';
+      case 'Low':
+        return 'success';
+      case 'Medium':
+        return 'warning';
+      case 'High':
+        return 'error';
+      default:
+        return 'default';
     }
   };
 
@@ -89,7 +98,12 @@ const PredictionHistory: React.FC = () => {
 
   if (loading && predictions.length === 0) {
     return (
-      <Box display="flex" justifyContent="center" alignItems="center" minHeight="60vh">
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        minHeight="60vh"
+      >
         <CircularProgress />
       </Box>
     );
@@ -119,10 +133,12 @@ const PredictionHistory: React.FC = () => {
               <TableCell>Actions</TableCell>
             </TableRow>
           </TableHead>
+
           <TableBody>
             {predictions.map((prediction) => (
               <TableRow key={prediction.prediction_id}>
                 <TableCell>{prediction.prediction_id}</TableCell>
+
                 <TableCell>
                   <Chip
                     label={prediction.risk_category}
@@ -130,34 +146,45 @@ const PredictionHistory: React.FC = () => {
                     size="small"
                   />
                 </TableCell>
+
                 <TableCell>
                   {(prediction.default_probability * 100).toFixed(2)}%
                 </TableCell>
+
                 <TableCell>
                   <Chip
                     label={prediction.recommendation}
-                    color={getRecommendationColor(prediction.recommendation) as any}
+                    color={
+                      getRecommendationColor(
+                        prediction.recommendation
+                      ) as any
+                    }
                     size="small"
                     variant="outlined"
                   />
                 </TableCell>
+
                 <TableCell>
                   {prediction.expected_loss
                     ? `€${prediction.expected_loss.toFixed(2)}`
                     : '-'}
                 </TableCell>
+
                 <TableCell>
                   {(prediction.confidence * 100).toFixed(1)}%
                 </TableCell>
+
                 <TableCell>
                   {prediction.processing_time_ms.toFixed(0)}ms
                 </TableCell>
+
                 <TableCell>
                   <Tooltip title="View Details">
                     <IconButton size="small">
                       <Info />
                     </IconButton>
                   </Tooltip>
+
                   <Tooltip title="Provide Feedback">
                     <IconButton size="small">
                       <Feedback />
@@ -166,6 +193,7 @@ const PredictionHistory: React.FC = () => {
                 </TableCell>
               </TableRow>
             ))}
+
             {predictions.length === 0 && (
               <TableRow>
                 <TableCell colSpan={8} align="center">
@@ -177,6 +205,7 @@ const PredictionHistory: React.FC = () => {
             )}
           </TableBody>
         </Table>
+
         <TablePagination
           rowsPerPageOptions={[5, 10, 25, 50]}
           component="div"
