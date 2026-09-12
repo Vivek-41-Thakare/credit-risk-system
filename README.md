@@ -7,7 +7,7 @@ Credit Risk System is an end-to-end AI-powered credit risk assessment platform t
 The system combines a machine learning model with a FastAPI backend, React frontend, PostgreSQL database, Redis caching, authentication, and Docker-based deployment to provide a production-oriented credit decision workflow.
 
 It is designed to simulate how a modern financial risk platform can assist analysts in evaluating loan applications, identifying high-risk applicants, and maintaining prediction history.
-
+blpopj
 ---
 
 ## What Makes It Special?
