@@ -1,5 +1,5 @@
 # Credit Risk System
-hhyhk
+
 ## Project Description
 
 Credit Risk System is an end-to-end AI-powered credit risk assessment platform that predicts the probability of loan default from applicant financial and demographic information.
