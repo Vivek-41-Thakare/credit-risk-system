@@ -1,4 +1,4 @@
-cccc# Credit Risk System
+Credit Risk System
 
 ## Project Description
 
